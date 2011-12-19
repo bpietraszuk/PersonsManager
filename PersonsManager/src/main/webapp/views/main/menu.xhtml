@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+
+	<f:view locale="#{language.localeCode}">
+
+		<div>
+			<h:form>
+				<ul>
+					<li><h:graphicImage id="home" library="images" name="home.png" />
+						<h:commandLink styleClass="cmdLinkMenu" action="home?faces-redirect=true">
+							<h:outputText value="#{msg.linkHome}" />
+						</h:commandLink></li>
+					<li><h:graphicImage id="addPerson" library="images" name="addPerson.png" />
+						<h:commandLink styleClass="cmdLinkMenu" action="add?faces-redirect=true">
+							<h:outputText value="#{msg.personAddLabel}" />
+						</h:commandLink>
+					</li>
+
+					<li><h:graphicImage id="deletePerson" library="images" name="deletePerson.png" />
+						<h:commandLink styleClass="cmdLinkMenu" action="delete?faces-redirect=true">
+							<h:outputText value="#{msg.personDeleteLabel}" />
+						</h:commandLink></li>
+						
+					<li><h:graphicImage id="searchPerson" library="images" name="searchPerson.png" />
+						<h:commandLink styleClass="cmdLinkMenu" action="edit?faces-redirect=true">
+						<h:outputText value="#{msg.personFindLabel}" />
+						</h:commandLink></li>
+					
+					<li><h:graphicImage id="peopleIcon" library="images" name="peopleIcon.png" />
+							<h:commandLink styleClass="cmdLinkMenu" action="showPersons?faces-redirect=true">
+							<h:outputText value="#{msg.personAllLabel}" />
+						</h:commandLink></li>
+						
+						<li><h:graphicImage id="db" library="images" name="database.png" />
+							<h:commandLink styleClass="cmdLinkMenu" action="defineConnection?faces-redirect=true">
+							<h:outputText value="Database" />
+						</h:commandLink></li>
+				<li>
+							<h:outputText value="Status:" />
+							<h:outputText value="#{connectionBean.connectionStatus}" />
+				</li>
+						
+						
+				</ul>
+			
+			</h:form>
+
+		</div>
+
+	</f:view>
+</ui:composition>

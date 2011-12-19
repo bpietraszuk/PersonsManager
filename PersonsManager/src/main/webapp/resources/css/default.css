@@ -1,0 +1,120 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: Verdana, sans-serif;
+	font-size: 0.9em;
+}
+
+.heading {
+	padding: 10px;
+	background: #006400;
+	border: none;
+	text-align: center;
+	height: 40px;
+}
+
+.logo {
+	float: left;
+	display: inline;
+}
+
+.title {
+	font-size: 30px;
+	font-style: italic;
+	font-family: Verdana;
+	color: white;
+	display: inline;
+}
+
+.locale {
+	float: right;
+	display: inline;
+}
+
+.menuAndContent {
+	width: 100%;
+	height: 100%;
+}
+
+.menu {
+	padding-right: 20px;
+	padding-left: 10px;
+	padding-bottom: 20px;
+	position: absolute;
+	left: 10px;
+	height: 80%;
+	width: 450px;
+	background: white;
+	top: 90px;
+}
+
+.content {
+	padding-right: 20px;
+	padding-left: 30px;
+	padding-bottom: 20px;
+	background: white;
+	position: absolute;
+	left: 280px;
+	right: 65px;
+	top: 90px;
+	height: 80%;
+}
+
+.cmdLink {
+	color: #FF4500;
+	text-decoration: none;
+}
+
+.cmdLink:hover {
+	border-bottom: 1px dotted;
+}
+
+.cmdLinkMenu {
+	color: black;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.cmdLinkMenu:hover {
+	background: #006400;
+	color: white;
+}
+
+.order-table {
+	border-collapse: collapse;
+}
+
+.order-table-header {
+	text-align: center;
+	background: none repeat scroll 0 0 #E5E5E5;
+	border-bottom: 1px solid #BBBBBB;
+	padding: 16px;
+}
+
+.order-table-odd-row {
+	text-align: center;
+	background: none repeat scroll 0 0 #FFFFFFF;
+	border-top: 1px solid #BBBBBB;
+	padding: 16px;
+}
+
+.order-table-even-row {
+	text-align: center;
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-top: 1px solid #BBBBBB;
+	padding: 16px;
+}
+
+.pageHeader {
+	font-size: 20px;
+	font-style: bold;
+}
+
+.message {
+	color: red;
+}
+
+ul {
+	list-style-type: none;
+}

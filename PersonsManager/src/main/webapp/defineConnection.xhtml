@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<f:view locale="#{language.localeCode}">
+			<h:form id="dbform">
+	
+				<h:panelGrid columns="2">
+
+					<h:outputText value="Host" />
+					<h:inputText id="host"  value="#{connectionBean.connection.host}"/>
+				
+					<h:outputText value="Port" />
+					<h:inputText id="port" value="#{connectionBean.connection.port}"/>
+		
+					<h:outputText value="Database" />
+					<h:inputText id="dbname"  value="#{connectionBean.connection.db}"/>
+			
+					<h:outputText value="Login" />
+					<h:inputText id="login"  value="#{connectionBean.connection.login}"/>
+					
+					<h:outputText value="Password" />
+					<h:inputText id="pswd"  value="#{connectionBean.connection.password}"/>
+	
+				</h:panelGrid>
+				<h:commandButton value="#{msg.personFormOKButton}" action="#{connectionBean.createConnection}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

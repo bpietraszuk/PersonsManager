@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<f:view locale="#{language.localeCode}">
+			<h:form id="personform">
+
+				<h:dataTable value="#{personBean.foundPerson}" var="item"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<f:facet name="header">#{msg.personFoundLabel}</f:facet>
+
+					<h:column>
+						<h:panelGrid columns="2">
+							<h:outputText value="#{msg.personNameLabel}" />
+        				#{item.name}
+						
+					<h:outputText value="#{msg.personYobLabel}" /> 
+						#{item.yob}
+	
+					<h:outputText value="#{msg.personPESELLabel}" />
+						#{item.peselNumber}
+       				
+       					
+					
+							<h:outputText value="#{msg.personLuckyNumberLabel}" />
+       					#{item.luckyNumber}
+    			
+			
+
+
+						</h:panelGrid>
+
+					</h:column>
+				</h:dataTable>
+
+
+			</h:form>
+		</f:view>
+	</ui:define>
+
+</ui:composition>

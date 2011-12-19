@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<f:view locale="#{language.localeCode}">
+			<h:form id="personform">
+				<h:outputText value="#{msg.personAddLabel}" styleClass="pageHeader" />
+				<h:panelGrid columns="3">
+
+					<h:outputText value="#{msg.personNameLabel}" />
+					<h:inputText id="name" validator="#{personBean.validateName}" value="#{personBean.person.name}" valueChangeListener="#{personBean.validateName}" />
+					<f:ajax execute="personform" event="keyup" render="nameError" />
+					<h:outputText id="nameError" value="#{personBean.nameError}" styleClass="message" />
+				</h:panelGrid>
+				<h:panelGrid columns="3">
+					<h:outputText value="#{msg.personYobLabel}" />
+					<h:inputText id="yob" validator="#{personBean.validatePESEL}" value="#{personBean.person.yob}"/>
+					<h:message for="yob" showDetail="#{true}" showSummary="#{false}" styleClass="message" />
+					
+					<h:outputText value="#{msg.personPESELLabel}" />
+					<h:inputText id="peselNumber" value="#{personBean.person.peselNumber}">
+					<f:validator validatorId="PESELValidator" />
+					</h:inputText>
+					<h:message for="peselNumber" showDetail="#{true}" showSummary="#{false}" styleClass="message" />
+
+					<h:outputText value="#{msg.personLuckyNumberLabel}" />
+					<h:inputText id="luckyNumber" value="#{personBean.person.luckyNumber}">
+					<f:validateLongRange minimum="1" maximum="10" />
+					</h:inputText>
+					<h:message for="luckyNumber" showDetail="#{true}" showSummary="#{false}" styleClass="message" />
+
+					<h:commandButton value="#{msg.personFormOKButton}" action="#{personBean.addPerson}" />
+				</h:panelGrid>
+				<h:panelGrid>
+					<h:message for="name" showDetail="#{true}" showSummary="#{false}" styleClass="message" />
+				</h:panelGrid>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

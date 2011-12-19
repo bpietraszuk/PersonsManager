@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<f:view locale="#{language.localeCode}">
+			<h:form id="personform">
+				<h:outputText value="#{msg.personDeleteLabel}"
+					styleClass="pageHeader" />
+				<h:panelGrid columns="2">
+
+					<h:outputText value="#{msg.personNameLabel}" />
+					<h:inputText id="name" value="#{personBean.person.name}" />
+
+					<h:commandButton value="#{msg.personFormOKButton}"
+						action="#{personBean.deletePersonByName}" />
+				</h:panelGrid>
+
+				<h:panelGrid>
+					<h:messages showDetail="#{true}" showSummary="#{false}" />
+				</h:panelGrid>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

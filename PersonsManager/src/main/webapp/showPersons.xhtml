@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<f:view locale="#{language.localeCode}">
+			<h:form id="tableForm">
+
+				<h:dataTable id="table" value="#{personBean.allPersons}" var="item"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<f:facet name="header">#{msg.personAllLabel}</f:facet>
+
+
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+			
+						<h:outputText id="id" value="#{item.id}" rendered="#{not item.editable}" validator="#{personBean.validateNameForUpdate}"/>
+					</h:column>
+
+
+					<h:column>
+						<f:facet name="header">#{msg.personNameLabel}</f:facet>
+						<h:inputText id="name" value="#{item.name}" size="10"
+							rendered="#{item.editable}"
+							validator="#{personBean.validateNameForUpdate}" />
+						<h:outputText value="#{item.name}" rendered="#{not item.editable}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">#{msg.personYobLabel}</f:facet>
+						<h:inputText id="yob" value="#{item.yob}" size="10"
+							rendered="#{item.editable}"  validator="#{personBean.validatePESELForUpdate}"/>
+						<h:outputText value="#{item.yob}" rendered="#{not item.editable}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg.personPESELLabel}</f:facet>
+						<h:inputText id="peselNumber" value="#{item.peselNumber}" size="10"
+							rendered="#{item.editable}">
+							<f:validator validatorId="PESELValidator" />
+						</h:inputText>
+						<h:outputText value="#{item.peselNumber}"
+							rendered="#{not item.editable}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg.personLuckyNumberLabel}</f:facet>
+						<h:inputText value="#{item.luckyNumber}" size="10"
+							rendered="#{item.editable}">
+							<f:validateLongRange minimum="1" maximum="10" />
+						</h:inputText>
+						<h:outputText value="#{item.luckyNumber}"
+							rendered="#{not item.editable}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.actionUpdate}"
+							action="#{personBean.editPerson(item)}"
+							rendered="#{not item.editable}" styleClass="cmdLink" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.actionDelete}"
+							action="#{personBean.deletePerson}" styleClass="cmdLink" rendered="#{not item.editable}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.actionSave}"
+							action="#{personBean.saveAction(item)}"
+							rendered="#{item.editable}" styleClass="cmdLink" />
+					</h:column>
+
+
+
+				</h:dataTable>
+
+			
+				<h:panelGrid>
+					<h:messages showDetail="#{true}" showSummary="#{false}"
+						styleClass="message" />
+				</h:panelGrid>
+				<h:commandButton value="#{msg.personAddLabel}" action="add" />
+		
+			
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
